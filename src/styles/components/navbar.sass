@@ -1,0 +1,38 @@
+@use "../variables"
+#navbar
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 1rem 2rem
+    background-color: #121212
+
+    h2
+        a
+            display: flex
+            align-items: center
+            gap: 0.5rem
+
+    form
+        display: flex
+        gap: 0.5rem
+
+        button
+            background-color: variables.$color-yellow
+            border: 2px solid variables.$color-yellow
+            border-radius: variables.$border-radius
+            padding: 0.3rem
+            color: #000
+            font-size: 1.3rem
+            display: flex
+            align-items: center
+            cursor: pointer
+            transition: .4s
+
+            &:hover
+                background-color: transparent
+                color: variables.$color-yellow
+
+    input
+        padding: 0.2rem 0.8rem
+        border-radius: variables.$border-radius
+        border: none
