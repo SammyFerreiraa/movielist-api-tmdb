@@ -1,41 +1,41 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import {
   BsGraphUp,
   BsWallet2,
   BsHourglassSplit,
   BsFillFileEarmarkTextFill,
-} from "react-icons/bs";
+} from 'react-icons/bs'
 
-import MovieCard from "../components/MovieCard";
+import MovieCard from '../components/MovieCard'
 
-import "../styles/pages/movie.sass";
+import '../styles/pages/movie.sass'
 
-const moviesURL = import.meta.env.VITE_API;
-const apiKey = import.meta.env.VITE_API_KEY;
+const moviesURL = import.meta.env.VITE_API
+const apiKey = import.meta.env.VITE_API_KEY
 
 const Movie = () => {
-  const { id } = useParams();
-  const [movie, setMovie] = useState(null);
+  const { id } = useParams()
+  const [movie, setMovie] = useState(null)
 
   const getMovie = async (url) => {
-    const response = await fetch(url);
-    const data = await response.json();
+    const response = await fetch(url)
+    const data = await response.json()
 
-    setMovie(data);
-  };
+    setMovie(data)
+  }
 
   const formatCurrency = (number) => {
-    return number.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
-  };
+    return number.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    })
+  }
 
   useEffect(() => {
-    const movieURL = `${moviesURL}${id}?${apiKey}`;
-    getMovie(movieURL);
-  }, []);
+    const movieURL = `${moviesURL}${id}?${apiKey}`
+    getMovie(movieURL)
+  }, [id])
 
   return (
     <div className="movie-page">
@@ -73,7 +73,7 @@ const Movie = () => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Movie;
+export default Movie

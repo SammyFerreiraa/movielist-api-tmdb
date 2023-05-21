@@ -1,21 +1,21 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { BiCameraMovie, BiSearchAlt2 } from "react-icons/bi";
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { BiCameraMovie, BiSearchAlt2 } from 'react-icons/bi'
 
-import "../styles/components/navbar.sass";
+import '../styles/components/navbar.sass'
 
 const Navbar = () => {
-  const [search, setSearch] = useState("");
-  const navigate = useNavigate();
+  const [search, setSearch] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    if (!search) return;
+    if (!search) return
 
-    navigate(`/search?q=${search}`);
-    setSearch("");
-  };
+    navigate(`/search?q=${search}`)
+    setSearch('')
+  }
 
   return (
     <nav id="navbar">
@@ -37,7 +37,7 @@ const Navbar = () => {
         </button>
       </form>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

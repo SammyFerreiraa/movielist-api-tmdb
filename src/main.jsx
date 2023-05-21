@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import App from "./App.jsx";
-import Home from "./pages/Home.jsx";
-import Movie from "./pages/Movie.jsx";
-import Search from "./pages/Search.jsx";
+import App from './App.jsx'
+import Home from './pages/Home.jsx'
+import Movie from './pages/Movie.jsx'
+import Search from './pages/Search.jsx'
 
-import "./styles/main.sass";
+import './styles/main.sass'
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
@@ -20,5 +20,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
-);
+  </React.StrictMode>,
+)

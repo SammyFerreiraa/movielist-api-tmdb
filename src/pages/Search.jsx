@@ -1,31 +1,30 @@
-import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import MovieCard from "../components/MovieCard";
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import MovieCard from '../components/MovieCard'
 
-const searchURL = import.meta.env.VITE_SEARCH;
-const apiKey = import.meta.env.VITE_API_KEY;
+import '../styles/pages/moviegrid.sass'
 
-import "../styles/pages/moviegrid.sass";
+const searchURL = import.meta.env.VITE_SEARCH
+const apiKey = import.meta.env.VITE_API_KEY
 
 const Search = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams] = useSearchParams()
 
-  const [movies, setMovies] = useState([]);
-  const query = searchParams.get("q");
-
+  const [movies, setMovies] = useState([])
+  const query = searchParams.get('q')
 
   const getSearchedMovies = async (url) => {
-    const response = await fetch(url);
-    const data = await response.json();
+    const response = await fetch(url)
+    const data = await response.json()
 
-    setMovies(data.results);
+    setMovies(data.results)
     console.log(data.results)
-  };
+  }
 
   useEffect(() => {
-    const searchWithQueryUrl = `${searchURL}?${apiKey}&query=${query}`;
-    getSearchedMovies(searchWithQueryUrl);
-  }, [query]);
+    const searchWithQueryUrl = `${searchURL}?${apiKey}&query=${query}`
+    getSearchedMovies(searchWithQueryUrl)
+  }, [query])
 
   return (
     <div className="container">
@@ -38,7 +37,7 @@ const Search = () => {
           movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search

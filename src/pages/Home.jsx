@@ -1,25 +1,25 @@
-import { useState, useEffect } from "react";
-import MovieCard from "../components/MovieCard";
+import { useState, useEffect } from 'react'
+import MovieCard from '../components/MovieCard'
 
-const movieURL = import.meta.env.VITE_API;
-const apiKey = import.meta.env.VITE_API_KEY;
+import '../styles/pages/moviegrid.sass'
 
-import "../styles/pages/moviegrid.sass"
+const movieURL = import.meta.env.VITE_API
+const apiKey = import.meta.env.VITE_API_KEY
 
 const Home = () => {
-  const [topMovies, setTopMovies] = useState([]);
+  const [topMovies, setTopMovies] = useState([])
 
   const getTopRatedMovies = async (url) => {
-    const response = await fetch(url);
-    const data = await response.json();
+    const response = await fetch(url)
+    const data = await response.json()
 
-    setTopMovies(data.results);
-  };
+    setTopMovies(data.results)
+  }
 
   useEffect(() => {
-    const topRatedUrl = `${movieURL}popular?${apiKey}`;
-    getTopRatedMovies(topRatedUrl);
-  }, []);
+    const topRatedUrl = `${movieURL}popular?${apiKey}`
+    getTopRatedMovies(topRatedUrl)
+  }, [])
 
   return (
     <div className="container">
@@ -30,7 +30,7 @@ const Home = () => {
           topMovies.map((movie) => <MovieCard movie={movie} key={movie.id} />)}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
